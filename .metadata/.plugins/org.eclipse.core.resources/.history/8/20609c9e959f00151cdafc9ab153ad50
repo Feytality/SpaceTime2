@@ -1,0 +1,69 @@
+package org.soen387.domain.model.player.mapper;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import org.dsrg.soenea.domain.MapperException;
+import org.dsrg.soenea.domain.mapper.DomainObjectNotFoundException;
+import org.soen387.domain.model.player.IPlayer;
+import org.soen387.domain.model.player.Player;
+import org.soen387.domain.model.player.finder.PlayerFinder;
+import org.soen387.domain.model.player.tdg.PlayerTDG;
+
+import com.mysql.jdbc.ResultSet;
+
+public class PlayerInputMapper {
+	
+	public static Player find(long id) throws SQLException, DomainObjectNotFoundException {
+		Player p = IM.get().get(id);
+		if(p!=null) return p;
+		
+		ResultSet rs = PlayerTDG.find(id);
+		if(rs.next()) {
+			p = buildPlayer(rs);
+			rs.close();
+			IM.get().put(id, p);
+			return p;
+		}
+		throw new DomainObjectNotFoundException("Could not create a Player with id \""+id+"\"");
+	}
+	
+	public static List<IPlayer> findAll() throws MapperException {
+        try {
+            java.sql.ResultSet rs = PlayerFinder.findAll();
+            return buildCollection(rs);
+        } catch (SQLException e) {
+            throw new MapperException(e);
+        }
+	}
+	
+	
+	public static List<IPlayer> buildCollection(ResultSet rs)
+		    throws SQLException {
+		    ArrayList<IPlayer> l = new ArrayList<IPlayer>();
+		    while(rs.next()) {
+		    	long id = rs.getLong("id");
+		    	Player c = IM.get().get(id);
+		    	if(c == null) {
+		    		c = buildPlayer(rs);
+		    		IM.get().put(id, c);
+		    	}
+		    	l.add(c);
+		    }
+		    return l;
+		}
+
+	
+	
+	private static Player buildPlayer(ResultSet rs) throws SQLException  {
+		// TODO Auto-generated method stub
+		return new Player(rs.getLong("id"),
+				rs.getInt("version"),
+				rs.getString("firstname"),
+				rs.getString("lastname"),
+				rs.getString("email"),
+				new UserProxy(rs.getLong("user"))
+				);
+	}
+
+}

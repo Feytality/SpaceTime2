@@ -1,0 +1,27 @@
+package org.soen387.domain.model.player.mapper;
+
+import java.sql.SQLException;
+
+import org.dsrg.soenea.domain.mapper.DomainObjectNotFoundException;
+import org.soen387.domain.model.player.Player;
+import org.soen387.domain.model.player.tdg.PlayerTDG;
+
+import com.mysql.jdbc.ResultSet;
+
+public class PlayerInputMapper {
+	
+	public static Player find(long id) throws SQLException, DomainObjectNotFoundException {
+		Player p = IM.get().get(id);
+		if(p!=null) return p;
+		
+		ResultSet rs = PlayerTDG.find(id);
+		if(rs.next()) {
+			p = buildPlayer(rs);
+			rs.close();
+			IM.get().put(id, p);
+			return p;
+		}
+		throw new DomainObjectNotFoundException("Could not create a Player with id \""+id+"\"");
+	}
+
+}

@@ -1,17 +1,21 @@
 package org.soen387.domain.model.player;
 
+import java.util.List;
+
 import org.dsrg.soenea.domain.DomainObjectCreationException;
 import org.dsrg.soenea.domain.MapperException;
 import org.dsrg.soenea.domain.proxy.DomainObjectProxy;
 import org.dsrg.soenea.domain.user.IUser;
+import org.soen387.domain.model.pilot.IPilot;
 import org.soen387.domain.model.player.mapper.PlayerMapper;
+import org.soen387.domain.model.team.ITeam;
 
-public class PlayerProxy extends DomainObjectProxy<Long, Player> implements IPlayer {
+public class PlayerProxy extends DomainObjectProxy<Long, Player> implements
+		IPlayer {
 
 	public PlayerProxy(long id) {
 		super(id);
 	}
-
 
 	@Override
 	protected Player getFromMapper(Long id) throws MapperException,
@@ -63,6 +67,51 @@ public class PlayerProxy extends DomainObjectProxy<Long, Player> implements IPla
 	@Override
 	public void setUser(IUser user) {
 		getInnerObject().setUser(user);
+	}
+
+	@Override
+	public void addPilot(IPilot pilot) {
+		getInnerObject().addPilot(pilot);
+	}
+
+	@Override
+	public void removePilot(IPilot pilot) {
+		getInnerObject().removePilot(pilot);
+	}
+
+	@Override
+	public List<IPilot> getPilots() {
+		return getInnerObject().getPilots();
+	}
+
+	@Override
+	public void setPilots(List<IPilot> pilots) {
+		getInnerObject().setPilots(pilots);
+	}
+
+	@Override
+	public List<ITeam> getTeams() {
+		return getInnerObject().getTeams();
+	}
+
+	@Override
+	public void setTeams(List<ITeam> teams) {
+		getInnerObject().setTeams(teams);
+	}
+
+	@Override
+	public void addTeam(ITeam team) {
+		getInnerObject().addTeam(team);
+	}
+
+	@Override
+	public void removeTeam(ITeam team) {
+		getInnerObject().removeTeam(team);
+	}
+	
+	@Override
+	public boolean equals(Object p) {
+		return p instanceof IPlayer && this.getId() == ((IPlayer) (p)).getId();
 	}
 
 }

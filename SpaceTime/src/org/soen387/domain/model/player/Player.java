@@ -1,14 +1,33 @@
 package org.soen387.domain.model.player;
 
-import org.dsrg.soenea.domain.DomainObject;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.soen387.domain.model.pilot.IPilot;
+import org.soen387.domain.model.team.ITeam;
+
 import org.dsrg.soenea.domain.user.IUser;
+import org.dsrg.soenea.domain.DomainObject;
+import org.dsrg.soenea.domain.producer.IdentityBasedProducer;
 
-public class Player extends DomainObject<Long> implements IPlayer {
+public class Player extends DomainObject<Long> implements IPlayer, IdentityBasedProducer {
 
-	String firstName;
-	String lastName;
-	String email;
-	IUser user;
+	private String firstName;
+	private String lastName;
+	private String email;
+	private IUser user;
+	private List<IPilot> pilots = new ArrayList<IPilot>();
+	private List<ITeam> teams = new ArrayList<ITeam>();
+	
+	public Player(long id, long version, String firstName, String lastName,
+			String email, IUser user) {
+		super(id, version);
+
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.user = user;
+	}
 
 	@Override
 	public String getFirstName() {
@@ -50,14 +69,51 @@ public class Player extends DomainObject<Long> implements IPlayer {
 		this.user = user;
 	}
 
-	public Player(long id, long version, String firstName, String lastName,
-			String email, IUser user) {
-		super(id, version);
-
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-		this.user = user;
+	
+	@Override
+	public void addPilot(IPilot pilot) {
+		pilots.add(pilot);
 	}
+
+	@Override
+	public void removePilot(IPilot pilot) {
+		pilots.remove(pilot);
+	}
+
+	@Override
+	public List<IPilot> getPilots() {
+		return pilots;
+	}
+
+	@Override
+	public void setPilots(List<IPilot> pilots) {
+		this.pilots = pilots;
+	}
+
+	@Override
+	public List<ITeam> getTeams() {
+		return teams;
+	}
+
+	@Override
+	public void setTeams(List<ITeam> teams) {
+		this.teams = teams;
+	}
+
+	@Override
+	public void addTeam(ITeam team) {
+		teams.add(team);		
+	}
+
+	@Override
+	public void removeTeam(ITeam team) {
+		teams.remove(team);
+	}
+	
+	@Override
+	public boolean equals(Object p) {
+		return p instanceof IPlayer && this.getId()==((IPlayer)(p)).getId();
+	}
+
 
 }
