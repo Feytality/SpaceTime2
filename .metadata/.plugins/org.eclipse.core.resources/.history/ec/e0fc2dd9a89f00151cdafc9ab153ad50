@@ -1,0 +1,36 @@
+package org.soen387.domain.model.notification;
+
+import org.dsrg.soenea.domain.DomainObject;
+import org.soen387.domain.model.player.IPlayer;
+
+public class Notification extends DomainObject<Long> implements INotification {
+	
+	private boolean seen;
+	private IPlayer recipient;
+
+	protected Notification(Long id, long version) {
+		super(id, version);
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public boolean isSeen() {
+		this.
+	}
+
+	@Override
+	public void setSeen(boolean seen) {
+		this.isSeen = seen;
+	}
+
+	@Override
+	public IPlayer getRecipient() {
+		return null;
+	}
+
+	@Override
+	public void setRecipient(IPlayer recipient) {
+		
+	}
+
+}

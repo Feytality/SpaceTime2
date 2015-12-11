@@ -7,7 +7,7 @@ import org.dsrg.soenea.service.tdg.UserTDG;
 import org.soen387.domain.model.challenge.tdg.ChallengeTDG;
 import org.soen387.domain.model.match.tdg.MatchTDG;
 import org.soen387.domain.model.notification.challenge.tdg.ChallengeNotificationTDG;
-import org.soen387.domain.model.notification.tdg.NotificationTDG;
+import org.soen387.domain.model.notification.tdg.ChallengeNotificationTDG;
 import org.soen387.domain.model.pilot.tdg.PilotTDG;
 import org.soen387.domain.model.player.tdg.PlayerTDG;
 import org.soen387.domain.model.team.tdg.TeamMembershipTDG;
@@ -26,7 +26,6 @@ public class Setup {
 			TeamMembershipTDG.createTable();
 			MatchTDG.createTable();
 			ChallengeTDG.createTable();
-			NotificationTDG.createTable();
 			ChallengeNotificationTDG.createTable();
 		} catch (SQLException e) {
 			e.printStackTrace();
