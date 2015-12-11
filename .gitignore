@@ -47,3 +47,4 @@ Temporary Items
 .apdisk
 *.prefs
 .metadata/.plugins/org.eclipse.core.resources/.history/f2/2043c4f4939f00151cdafc9ab153ad50
+*.xmi
