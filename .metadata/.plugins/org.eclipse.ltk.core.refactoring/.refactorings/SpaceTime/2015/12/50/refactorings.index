@@ -15,3 +15,5 @@
 1449797997667	Rename package 'org.soen387.domain.model.team.mapper'
 1449798016121	Move compilation unit
 1449799781001	Rename type 'NotificationTDG'
+1449801691607	Rename package 'orog.soen387.model.match.tdg'
+1449801716459	Rename package 'orog.soen387.domain.model.match.tdg'

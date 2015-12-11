@@ -1,0 +1,67 @@
+package org.soen387.domain.model.match.outputmapper;
+
+import java.sql.SQLException;
+
+import org.dsrg.soenea.domain.MapperException;
+import org.dsrg.soenea.domain.mapper.GenericOutputMapper;
+import org.dsrg.soenea.domain.mapper.LostUpdateException;
+
+import org.soen387.domain.model.match.IMatch;
+import org.soen387.domain.model.match.Match;
+import org.soen387.domain.model.match.tdg.MatchTDG;
+
+public class MatchOutputMapper extends GenericOutputMapper<Long, Match> {
+	public static void insertStatic(Match m) throws SQLException {
+		MatchTDG.insert(m.getId(), m.getVersion(), m.getFirstTeam().getId(), 
+				m.getSecondTeam().getId(), m.getStatus().name());
+	}
+
+	public static void updateStatic(IMatch m) throws SQLException,
+			LostUpdateException {
+		int count = MatchTDG.update(m.getId(), m.getVersion(), m.getFirstTeam()
+				.getId(), m.getSecondTeam().getId(), m.getStatus().name());
+		
+		if (count == 0) {
+			throw new LostUpdateException("Lost Update editing a Match with id "
+					+ m.getId());
+		}
+		m.setVersion(m.getVersion() + 1);
+	}
+
+	public static void deleteStatic(IMatch m) throws SQLException,
+			LostUpdateException {
+		int count = MatchTDG.delete(m.getId(), m.getVersion());
+		
+		if (count == 0) {
+			throw new LostUpdateException("Lost Update deleting a Match with id "
+					+ m.getId());
+		}
+	}
+
+	@Override
+	public void insert(Match m) throws MapperException {
+		try {
+			insertStatic(m);
+		} catch (SQLException e) {
+			throw new MapperException(e);
+		}
+	}
+
+	@Override
+	public void update(Match m) throws MapperException {
+		try {
+			updateStatic(m);
+		} catch (SQLException e) {
+			throw new MapperException(e);
+		}
+	}
+
+	@Override
+	public void delete(Match m) throws MapperException {
+		try {
+			deleteStatic(m);
+		} catch (SQLException e) {
+			throw new MapperException(e);
+		}
+	}
+}

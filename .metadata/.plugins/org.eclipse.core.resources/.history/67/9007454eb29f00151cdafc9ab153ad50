@@ -1,0 +1,5 @@
+package org.soen387.domain.model.match.inputmapper;
+
+public class MatchInputMapper {
+
+}

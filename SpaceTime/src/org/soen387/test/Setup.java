@@ -6,7 +6,6 @@ import org.dsrg.soenea.application.servlet.impl.SmartDispatcherServlet;
 import org.dsrg.soenea.service.tdg.UserTDG;
 import org.soen387.domain.model.challenge.tdg.ChallengeTDG;
 import org.soen387.domain.model.match.tdg.MatchTDG;
-import org.soen387.domain.model.notification.challenge.tdg.ChallengeNotificationTDG;
 import org.soen387.domain.model.notification.tdg.ChallengeNotificationTDG;
 import org.soen387.domain.model.pilot.tdg.PilotTDG;
 import org.soen387.domain.model.player.tdg.PlayerTDG;

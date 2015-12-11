@@ -1,0 +1,73 @@
+package org.soen387.domain.model.match;
+
+import org.dsrg.soenea.domain.DomainObject;
+import org.soen387.domain.model.player.IPlayer;
+import org.soen387.domain.model.team.ITeam;
+
+public class Match extends DomainObject<Long> implements IMatch {
+	
+	private ITeam firstTeam;
+	private ITeam secondTeam;
+	private GameStatus status;
+	private IPlayer winner;
+	
+	public Match(long id, int version, ITeam firstTeam, ITeam secondTeam, GameStatus status) {
+		super(id, version);
+		this.firstTeam = firstTeam;
+		this.secondTeam = secondTeam;
+		this.status = status;
+	}
+
+	@Override
+	public ITeam getFirstTeam() {
+		return firstTeam;
+	}
+
+	@Override
+	public void setFirstTeam(ITeam firstTeam) {
+		this.firstTeam = firstTeam;
+	}
+
+	@Override
+	public ITeam getSecondTeam() {
+		return secondTeam;
+	}
+
+	@Override
+	public void setSecondTeam(ITeam secondTeam) {
+		this.secondTeam = secondTeam;
+	}
+
+	@Override
+	public GameStatus getStatus() {
+		return status;
+	}
+
+	@Override
+	public void setStatus(GameStatus status) {		
+		this.status = status;
+	}
+
+	@Override
+	public IPlayer getWinner() {
+		return winner;
+	}
+
+	@Override
+	public void setWinner(IPlayer player) {
+		this.winner = player;
+	}
+
+	@Override
+	public boolean isOver() {
+		return false;
+	}
+
+	@Override
+	public boolean isTied() {
+		return false;
+	}
+	
+	
+
+}

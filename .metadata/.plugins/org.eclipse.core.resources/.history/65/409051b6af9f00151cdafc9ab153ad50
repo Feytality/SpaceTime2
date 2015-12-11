@@ -1,0 +1,101 @@
+package org.soen387.domain.model.match;
+
+import org.dsrg.soenea.domain.DomainObject;
+import org.soen387.domain.model.player.IPlayer;
+import org.soen387.domain.model.team.ITeam;
+
+public class Match extends DomainObject<Long> implements IMatch {
+	
+	private ITeam firstTeam;
+	private ITeam secondTeam;
+	private GameStatus status;
+	private IPlayer winner;
+	
+	public Match(ITeam firstTeam, ITeam secondTeam, GameStatus status) {
+		super(id, version);
+		this.firstTeam = firstTeam;
+		this.secondTeam = secondTeam;
+		this.status = status;
+	}
+
+	@Override
+	public Long getId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public long getVersion() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void setVersion(long new_version) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public ITeam getFirstTeam() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setFirstTeam(ITeam firstTeam) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public ITeam getSecondTeam() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setSecondTeam(ITeam secondTeam) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public GameStatus getStatus() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setStatus(GameStatus status) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public IPlayer getWinner() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setWinner(IPlayer player) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean isOver() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isTied() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
+	
+
+}
