@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.dsrg.soenea.domain.MapperException;
-import org.dsrg.soenea.domain.ObjectRemovedException;
 import org.dsrg.soenea.domain.mapper.DomainObjectNotFoundException;
 import org.dsrg.soenea.domain.mapper.IdentityMap;
 import org.dsrg.soenea.domain.user.IUser;
@@ -88,8 +87,8 @@ public class PlayerInputMapper {
 	private static Player buildPlayer(ResultSet rs) throws SQLException,
 			MissingMappingException, MapperException {
 		return PlayerFactory.createClean(rs.getLong("id"),
-				rs.getInt("version"), rs.getString("firstname"), rs
-						.getString("lastname"), rs.getString("email"),
+				rs.getInt("version"), rs.getString("firstname"), 
+				rs.getString("lastname"), rs.getString("email"),
 				new UserProxy(rs.getLong("user")));
 	}
 

@@ -1,0 +1,5 @@
+package org.soen398.domain.model.challenge;
+
+public interface IChallenge {
+
+}

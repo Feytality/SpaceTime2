@@ -1,0 +1,5 @@
+package org.soen387.domain.model.challenge.tdg;
+
+public class ChallengeTDG {
+
+}
