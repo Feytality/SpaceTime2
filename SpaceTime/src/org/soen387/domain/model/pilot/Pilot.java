@@ -4,8 +4,15 @@ import org.dsrg.soenea.domain.DomainObject;
 import org.soen387.domain.model.player.IPlayer;
 
 public class Pilot extends DomainObject<Long> implements IPilot{
-	String name;
-	IPlayer player;
+	
+	private String name;
+	private IPlayer player;
+
+	public Pilot(long id, long version, String name, IPlayer player) {
+		super(id, version);
+		this.name = name;
+		this.player = player;
+	}
 
 	@Override
 	public String getName() {
@@ -26,14 +33,6 @@ public class Pilot extends DomainObject<Long> implements IPilot{
 	public void setPlayer(IPlayer player) {
 		this.player = player;
 	}
-	/* (non-Javadoc)
-	 * @see org.soen387.domain.model.pilot.IPilot#getId()
-	 */
 
-	public Pilot(long id, long version, String name, IPlayer player) {
-		super(id, version);
-		this.name = name;
-		this.player = player;
-	}
 
 }

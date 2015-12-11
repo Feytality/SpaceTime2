@@ -2,7 +2,6 @@ package org.soen387.domain.model.player.tdg;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -41,7 +40,6 @@ public class PlayerTDG {
 		update.execute(DROP_TABLE);
 	}
 	
-	
 	public static final String INSERT = "INSERT INTO " + TABLE_NAME + " (" + COLUMNS + ") "
 			+ "VALUES (?,?,?,?,?,?);";
 	public static int insert(long id, long version, String firstname, String lastname, String email, long user) throws SQLException {
@@ -79,30 +77,7 @@ public class PlayerTDG {
 		ps.setLong(2,version);
 		return ps.executeUpdate();
 	}
-	
-	public static final String FIND = "SELECT " + COLUMNS + " FROM " + TABLE_NAME + " WHERE id=?;";
-	public static ResultSet find(long id) throws SQLException {
-    	Connection con = DbRegistry.getDbConnection();
-		PreparedStatement ps = con.prepareStatement(FIND);
-		ps.setLong(1,id);
-		return ps.executeQuery();
-	}
-	
-	public static final String FIND_BY_USER = "SELECT " + COLUMNS + " FROM " + TABLE_NAME + " WHERE user=?;";
-	public static ResultSet findByUser(long user) throws SQLException {
-    	Connection con = DbRegistry.getDbConnection();
-		PreparedStatement ps = con.prepareStatement(FIND_BY_USER);
-		ps.setLong(1,user);
-		return ps.executeQuery();
-	}
-	
-	public static final String FIND_ALL = "SELECT " + COLUMNS + " FROM " + TABLE_NAME + ";";
-	public static ResultSet findAll() throws SQLException {
-    	Connection con = DbRegistry.getDbConnection();
-		PreparedStatement ps = con.prepareStatement(FIND_ALL);
-		return ps.executeQuery();
-	}
-	
+		
 	public static long getMaxId() throws SQLException {
 		return UniqueIdFactory.getMaxId(BASE, "id");
 	}

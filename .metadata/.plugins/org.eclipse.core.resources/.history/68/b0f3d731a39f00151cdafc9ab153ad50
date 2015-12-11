@@ -1,0 +1,64 @@
+package org.soen387.domain.model.team.mapper;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.dsrg.soenea.domain.MapperException;
+import org.dsrg.soenea.domain.ObjectRemovedException;
+import org.dsrg.soenea.domain.mapper.DomainObjectNotFoundException;
+import org.dsrg.soenea.domain.mapper.GenericOutputMapper;
+import org.dsrg.soenea.domain.mapper.IdentityMap;
+import org.dsrg.soenea.domain.mapper.LostUpdateException;
+import org.dsrg.soenea.uow.UoW;
+import org.soen387.domain.model.pilot.IPilot;
+import org.soen387.domain.model.pilot.Pilot;
+import org.soen387.domain.model.pilot.mapper.PilotInputMapper;
+import org.soen387.domain.model.pilot.mapper.PilotMapper;
+import org.soen387.domain.model.player.IPlayer;
+import org.soen387.domain.model.player.Player;
+import org.soen387.domain.model.player.PlayerProxy;
+import org.soen387.domain.model.team.ITeam;
+import org.soen387.domain.model.team.Team;
+import org.soen387.domain.model.team.TeamProxy;
+import org.soen387.domain.model.team.tdg.TeamMembershipTDG;
+import org.soen387.domain.model.team.tdg.TeamTDG;
+
+public class TeamMapper extends GenericOutputMapper<Long, Team> {
+
+	
+	
+
+	
+	
+	@Override
+	public void insert(Team d) throws MapperException {
+		try {
+			insertStatic(d);
+		} catch (SQLException e) {
+			throw new MapperException(e);
+		}
+	}
+
+	@Override
+	public void update(Team d) throws MapperException {
+		try {
+			updateStatic(d);
+		} catch (SQLException e) {
+			throw new MapperException(e);
+		}
+	}
+
+	@Override
+	public void delete(Team d) throws MapperException {
+		try {
+			deleteStatic(d);
+		} catch (SQLException e) {
+			throw new MapperException(e);
+		}
+	}
+	
+}

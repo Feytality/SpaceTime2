@@ -13,12 +13,39 @@ import org.soen387.domain.model.team.tdg.TeamTDG;
 
 public class PlayerOutputMapper extends GenericOutputMapper<Long, Player> {
 
-	public static void staticInsert(IPlayer p) throws SQLException {
+	@Override
+	public void insert(Player d) throws MapperException {
+		try {
+			PlayerOutputMapper.insertStatic(d);
+		} catch (SQLException e) {
+			throw new MapperException(e);
+		}
+	}
+
+	@Override
+	public void update(Player d) throws MapperException {
+		try {
+			PlayerOutputMapper.updateStatic(d);
+		} catch (SQLException e) {
+			throw new MapperException(e);
+		}
+	}
+
+	@Override
+	public void delete(Player d) throws MapperException {
+		try {
+			PlayerOutputMapper.deleteStatic(d);
+		} catch (SQLException e) {
+			throw new MapperException(e);
+		}
+	}
+
+	public static void insertStatic(IPlayer p) throws SQLException {
 		PlayerTDG.insert(p.getId(), p.getVersion(), p.getFirstName(),
 				p.getLastName(), p.getEmail(), p.getUser().getId());
 	}
 
-	public static void staticUpdate(IPlayer p) throws SQLException,
+	public static void updateStatic(IPlayer p) throws SQLException,
 			LostUpdateException {
 		int count = PlayerTDG.update(p.getId(), p.getVersion(), p
 				.getFirstName(), p.getLastName(), p.getEmail(), p.getUser()
@@ -29,7 +56,7 @@ public class PlayerOutputMapper extends GenericOutputMapper<Long, Player> {
 		p.setVersion(p.getVersion() + 1);
 	}
 
-	public static void staticDelete(IPlayer p) throws SQLException,
+	public static void deleteStatic(IPlayer p) throws SQLException,
 			LostUpdateException {
 		int count = PlayerTDG.delete(p.getId(), p.getVersion());
 		if (count == 0)
@@ -40,32 +67,4 @@ public class PlayerOutputMapper extends GenericOutputMapper<Long, Player> {
 		TeamTDG.deleteByPlayer(p.getId());
 		PilotTDG.deleteByPlayer(p.getId());
 	}
-
-	@Override
-	public void insert(Player d) throws MapperException {
-		try {
-			PlayerOutputMapper.staticInsert(d);
-		} catch (SQLException e) {
-			throw new MapperException(e);
-		}
-	}
-
-	@Override
-	public void update(Player d) throws MapperException {
-		try {
-			PlayerOutputMapper.staticUpdate(d);
-		} catch (SQLException e) {
-			throw new MapperException(e);
-		}
-	}
-
-	@Override
-	public void delete(Player d) throws MapperException {
-		try {
-			PlayerOutputMapper.staticDelete(d);
-		} catch (SQLException e) {
-			throw new MapperException(e);
-		}
-	}
-
 }

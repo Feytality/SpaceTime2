@@ -13,7 +13,7 @@ import org.soen387.domain.model.player.tdg.PlayerTDG;
  *
  */
 public class PlayerFinder {
-	
+
 	public static final String FIND = "SELECT " + PlayerTDG.COLUMNS + " FROM "
 			+ PlayerTDG.TABLE_NAME + " WHERE id=?;";
 
@@ -34,6 +34,21 @@ public class PlayerFinder {
 		return ps.executeQuery();
 	}
 
+	// TODO change this.
+	public static final String FIND_BY_PAGE_ROWS = "SELECT "
+			+ PlayerTDG.COLUMNS + " FROM " + PlayerTDG.TABLE_NAME
+			+ " WHERE id > (? - 1) * ? LIMIT ?;";
+
+	public static ResultSet findByPageRows(int page, int rows)
+			throws SQLException {
+		Connection con = DbRegistry.getDbConnection();
+		PreparedStatement ps = con.prepareStatement(FIND_BY_PAGE_ROWS);
+		ps.setInt(1, page);
+		ps.setInt(2, rows);
+		ps.setInt(3, rows);
+		return ps.executeQuery();
+	}
+
 	public static final String FIND_ALL = "SELECT " + PlayerTDG.COLUMNS
 			+ " FROM " + PlayerTDG.TABLE_NAME + ";";
 
@@ -42,5 +57,5 @@ public class PlayerFinder {
 		PreparedStatement ps = con.prepareStatement(FIND_ALL);
 		return ps.executeQuery();
 	}
-	
+
 }

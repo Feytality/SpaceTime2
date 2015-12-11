@@ -1,0 +1,5 @@
+package org.soen387.domain.model.pilot;
+
+public class PilotFactory {
+
+}

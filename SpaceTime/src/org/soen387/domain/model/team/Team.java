@@ -6,16 +6,23 @@ import org.dsrg.soenea.domain.DomainObject;
 import org.soen387.domain.model.pilot.IPilot;
 import org.soen387.domain.model.player.IPlayer;
 
-public class Team extends DomainObject<Long> implements ITeam{
+public class Team extends DomainObject<Long> implements ITeam {
 
-	String name;
-	IPlayer player;
+	private String name;
+	private IPlayer player;
+	private List<IPilot> members;
+	
+	public Team(long id, long version, String name, IPlayer player,
+			List<IPilot> members) {
+		super(id, version);
+		this.name = name;
+		this.player = player;
+		this.members = members;
+	}
 	
 	public List<IPilot> getMembers() {
 		return members;
 	}
-
-	List<IPilot> members;
 	
 	@Override
 	public String getName() {
@@ -37,13 +44,7 @@ public class Team extends DomainObject<Long> implements ITeam{
 		this.player = player;
 	}
 
-	public Team(long id, long version, String name, IPlayer player,
-			List<IPilot> members) {
-		super(id, version);
-		this.name = name;
-		this.player = player;
-		this.members = members;
-	}
+	
 
 	
 }

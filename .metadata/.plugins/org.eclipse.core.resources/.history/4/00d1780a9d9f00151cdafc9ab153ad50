@@ -1,0 +1,7 @@
+package org.soen387.domain.model.pilot.mapper;
+
+
+
+public class PilotOutputMapper {
+	
+}
