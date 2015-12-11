@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.soen387.domain.model.pilot.IPilot;
-import org.soen387.domain.model.pilot.mapper.PilotInputMapper;
+import org.soen387.domain.model.pilot.inputmapper.PilotInputMapper;
 import org.soen387.domain.model.player.Player;
 
 /**

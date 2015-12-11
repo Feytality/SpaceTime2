@@ -12,7 +12,7 @@ import org.dsrg.soenea.domain.mapper.DomainObjectNotFoundException;
 import org.dsrg.soenea.domain.user.IUser;
 import org.dsrg.soenea.domain.user.mapper.UserInputMapper;
 import org.soen387.domain.model.player.IPlayer;
-import org.soen387.domain.model.player.mapper.PlayerInputMapper;
+import org.soen387.domain.model.player.inputmapper.PlayerInputMapper;
 
 /**
  * Servlet implementation class ListGames

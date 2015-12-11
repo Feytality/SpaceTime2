@@ -20,14 +20,13 @@ import org.dsrg.soenea.service.threadLocal.ThreadLocalTracker;
 import org.dsrg.soenea.uow.MapperFactory;
 import org.dsrg.soenea.uow.MissingMappingException;
 import org.dsrg.soenea.uow.UoW;
-
 import org.soen387.domain.model.pilot.Pilot;
-import org.soen387.domain.model.pilot.mapper.PilotOutputMapper;
+import org.soen387.domain.model.pilot.outputmapper.PilotOutputMapper;
 import org.soen387.domain.model.player.Player;
-import org.soen387.domain.model.player.mapper.PlayerInputMapper;
-import org.soen387.domain.model.player.mapper.PlayerOutputMapper;
+import org.soen387.domain.model.player.inputmapper.PlayerInputMapper;
+import org.soen387.domain.model.player.outputmapper.PlayerOutputMapper;
 import org.soen387.domain.model.team.Team;
-import org.soen387.domain.model.team.mapper.TeamOutputMapper;
+import org.soen387.domain.model.team.outputmapper.TeamOutputMapper;
 
 /**
  * Servlet implementation class PageController

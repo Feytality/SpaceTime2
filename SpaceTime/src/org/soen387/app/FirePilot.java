@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.dsrg.soenea.service.threadLocal.DbRegistry;
 import org.soen387.domain.model.pilot.Pilot;
-import org.soen387.domain.model.pilot.mapper.PilotInputMapper;
-import org.soen387.domain.model.pilot.mapper.PilotOutputMapper;
+import org.soen387.domain.model.pilot.inputmapper.PilotInputMapper;
+import org.soen387.domain.model.pilot.outputmapper.PilotOutputMapper;
 import org.soen387.domain.model.player.Player;
 
 /**

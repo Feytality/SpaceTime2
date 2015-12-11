@@ -6,9 +6,8 @@ import org.dsrg.soenea.domain.DomainObjectCreationException;
 import org.dsrg.soenea.domain.MapperException;
 import org.dsrg.soenea.domain.proxy.DomainObjectProxy;
 import org.dsrg.soenea.domain.user.IUser;
-
 import org.soen387.domain.model.pilot.IPilot;
-import org.soen387.domain.model.player.mapper.PlayerInputMapper;
+import org.soen387.domain.model.player.inputmapper.PlayerInputMapper;
 import org.soen387.domain.model.team.ITeam;
 
 public class PlayerProxy extends DomainObjectProxy<Long, Player> implements

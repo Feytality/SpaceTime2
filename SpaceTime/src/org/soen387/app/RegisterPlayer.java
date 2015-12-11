@@ -17,7 +17,7 @@ import org.dsrg.soenea.domain.user.mapper.UserOutputMapper;
 import org.dsrg.soenea.service.tdg.UserTDG;
 import org.dsrg.soenea.service.threadLocal.DbRegistry;
 import org.soen387.domain.model.player.Player;
-import org.soen387.domain.model.player.mapper.PlayerOutputMapper;
+import org.soen387.domain.model.player.outputmapper.PlayerOutputMapper;
 import org.soen387.domain.model.player.tdg.PlayerTDG;
 import org.soen387.domain.model.role.RegisteredRole;
 

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.dsrg.soenea.service.threadLocal.DbRegistry;
 import org.soen387.domain.model.player.Player;
 import org.soen387.domain.model.team.Team;
-import org.soen387.domain.model.team.mapper.TeamInputMapper;
+import org.soen387.domain.model.team.inputmapper.TeamInputMapper;
 
 /**
  * Servlet implementation class ViewTeam

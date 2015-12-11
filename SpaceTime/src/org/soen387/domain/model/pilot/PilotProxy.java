@@ -3,7 +3,7 @@ package org.soen387.domain.model.pilot;
 import org.dsrg.soenea.domain.DomainObjectCreationException;
 import org.dsrg.soenea.domain.MapperException;
 import org.dsrg.soenea.domain.proxy.DomainObjectProxy;
-import org.soen387.domain.model.pilot.mapper.PilotInputMapper;
+import org.soen387.domain.model.pilot.inputmapper.PilotInputMapper;
 import org.soen387.domain.model.player.IPlayer;
 
 public class PilotProxy extends DomainObjectProxy<Long, Pilot> implements IPilot {

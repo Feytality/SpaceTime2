@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.dsrg.soenea.service.threadLocal.DbRegistry;
 import org.soen387.domain.model.player.IPlayer;
-import org.soen387.domain.model.player.mapper.PlayerInputMapper;
+import org.soen387.domain.model.player.inputmapper.PlayerInputMapper;
 
 /**
  * Servlet implementation class ListGames

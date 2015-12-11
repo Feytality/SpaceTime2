@@ -13,7 +13,7 @@ import org.dsrg.soenea.service.threadLocal.DbRegistry;
 import org.soen387.domain.model.pilot.IPilot;
 import org.soen387.domain.model.player.Player;
 import org.soen387.domain.model.team.Team;
-import org.soen387.domain.model.team.mapper.TeamOutputMapper;
+import org.soen387.domain.model.team.outputmapper.TeamOutputMapper;
 import org.soen387.domain.model.team.tdg.TeamTDG;
 
 /**
